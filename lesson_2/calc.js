@@ -1,40 +1,61 @@
 const  readline = require('readline-sync');
+const MESSAGES = require('./calc_message.json');
+let LANGUAGE = 'en';
 
+//Language Selector
+prompt("chooseLang");
+let choosenLang = readline.question();
+
+if (choosenLang === '2') {
+  LANGUAGE = 'es';
+} else {
+  LANGUAGE = 'en';
+}
+// Switch for go agin
 let yesNo = '1';
 
-function prompt(message) {
-  console.log(`=> ${message}`);
-}
-
+// check for valid input
 function invaidNumber(number) {
   return number.trimStart() === '' || Number.isNaN(Number(number));
-
-
 }
+// contols languge for all prompts??
+function messages(message, lang = 'en') {
+  return MESSAGES[lang][message];
+}
+
+function prompt(key) {
+  let message = messages(key, LANGUAGE);
+  console.log(`=> ${message}`);
+}
+//Welcome mess
+prompt('welcome');
+let name = readline.question();
+
+//Loop to check weather user wnats to go again
 while (yesNo === '1') {
   yesNo = 0;
-  prompt("Welcome to Calculator!");
 
-  prompt("What's the first number?");
+
+  prompt('number');
   let num1 = readline.question();
 
   while (invaidNumber(num1)) {
-    prompt("Invaild number try again");
+    prompt('validNumber');
     num1 = readline.question();
   }
 
-  prompt("What's the second number?");
+  prompt('number');
   let num2 = readline.question();
 
   while (invaidNumber(num2)) {
-    prompt("Invaid number try again");
+    prompt("validNumber");
     num2 = readline.question();
   }
-  prompt("What operation would you like to perform?\n1) Add 2) Subtracy 3) Mulitply 4) Divide 5)");
+  prompt("WhatOp");
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
-    prompt("Must choose 1, 2, 3 or 4");
+    prompt("mustChoose");
     operation = readline.question();
   }
   let output;
@@ -54,6 +75,9 @@ while (yesNo === '1') {
   }
 
   console.log(output);
-  prompt('Press (1) to go again, any other key to quit');
+  console.log(`=> Thanks ${name} would you like to perform another?`);
+  prompt("again");
   yesNo = readline.question();
 }
+
+console.log(MESSAGES);

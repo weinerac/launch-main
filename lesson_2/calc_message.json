@@ -1,0 +1,23 @@
+{
+"en": {
+
+    "welcome": "Welcome to Calculator! Enter your name:",
+    "validName": "Make sure to enter a valid name.",
+    "number": "Enter a number",
+    "validNumber": "Enter a valid Number",
+    "WhatOp": "What operation would you like to perform? (1) ADD (2) SUBTRACT (3) MULIPLY (4) DIVIDE",
+    "mustChoose": "Must choose 1, 2, 3 or 4",
+    "again": "Press (1) to go again, any other key to quit",
+    "chooseLang": "Choose a languge English (1) Spanish (2)"
+  },
+  "es": {
+    "welcome": "Bienvenido a Calculadora! Introduzca su nombre:",
+    "validName": "Asegúrate de ingresar un nombre válido.",
+    "number": "Ingrese un numero",
+    "validNumber": "Ingrese un número válido",
+    "WhatOp": "What operation would you like to perform? SPANISH",
+    "mustChoose": "Must choose 1, 2, 3 or 4 SPANISH",
+    "again": "Press (1) to go again, any other key to quit SPANISH"
+
+  }
+}
